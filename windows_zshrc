@@ -1,0 +1,49 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export ZPLUG_HOME=/home/linuxbrew/.linuxbrew/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-autosuggestions"
+zplug "romkatv/powerlevel10k", as:theme, depth:1
+
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
+source ~/.theme/sonar_station_windows.zsh
+#source ~/.theme/onedark_oji.zsh
+#source ~/.theme/super_brothers.zsh
+#source ~/.theme/DяA.zsh 
+#source ~/.theme/ghostwheel.zsh
+#source ~/.theme/Colorful_Pallent.zsh
+#source ~/.theme/cappuccino.zsh
+#source ~/.theme/new_era.zsh
+#source ~/.theme/Mobius.zsh
+
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+PATH=$PATH:$(ruby -e 'puts Gem.bindir')
+alias ls="colorls"
+alias pbcopy='clip.exe'
+
+zplug load --verbose
+
+clear

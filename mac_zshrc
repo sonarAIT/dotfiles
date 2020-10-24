@@ -1,0 +1,53 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-autosuggestions"
+zplug "romkatv/powerlevel10k", as:theme, depth:1
+source ~/z/z.sh
+
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
+source .theme/sonar_station.zsh
+# source .theme/onedark_oji.zsh
+# source .theme/super_brothers.zsh
+# source .theme/DяA.zsh
+# source .theme/ghostwheel.zsh
+# source .theme/Colorful_Pallet.zsh
+# source .theme/cappuccino.zsh
+# source .theme/new_era.zsh
+# source .theme/Mobius.zsh
+
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+alias ls="colorls"
+
+ssh-add -A
+zplug load --verbose
+
+clear
+export PATH="/usr/local/opt/bison/bin:$PATH"
+export PATH="/usr/local/opt/flex/bin:$PATH"
+export PATH="/usr/local/bin/vim:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export PATH_TO_FX="/Library/Java/JavaVirtualMachines/javafx-sdk-11.0.2/lib/"

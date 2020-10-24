@@ -1,0 +1,66 @@
+POWERLEVEL9K_MODE=nerdfont-complete
+s=' '
+
+POWERLEVEL9K_CUSTOM_WIFI_SIGNAL="zsh_wifi_signal"
+POWERLEVEL9K_CUSTOM_WIFI_SIGNAL_BACKGROUND="cyan"
+POWERLEVEL9K_CUSTOM_WIFI_SIGNAL_FOREGROUND="black"
+
+zsh_wifi_signal(){
+        local output=$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I)
+        local airport=$(echo $output | grep 'AirPort' | awk -F': ' '{print $2}')
+
+        if [ "$airport" = "Off" ]; then
+                local color='%F{black}'
+                echo -n "%{$color%}Wifi Off"
+        else
+                local ssid=$(echo $output | grep ' SSID' | awk -F': ' '{print $2}')
+                local speed=$(echo $output | grep 'lastTxRate' | awk -F': ' '{print $2}')
+                local color='%F{black}'
+
+                [[ $speed -gt 100 ]] && color='%F{black}'
+                [[ $speed -lt 50 ]] && color='%F{red}'
+
+                echo -n "%{$color%}$speed Mbps \uf1eb%{%f%}" # removed char not in my PowerLine font
+        fi
+}
+
+POWERLEVEL9K_CONTEXT_TEMPLATE='%n'
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='white'
+POWERLEVEL9K_BATTERY_CHARGING='green'
+POWERLEVEL9K_BATTERY_CHARGED='green'
+POWERLEVEL9K_BATTERY_DISCONNECTED='green'
+POWERLEVEL9K_BATTERY_LOW_COLOR='red'
+POWERLEVEL9K_BATTERY_LOW_THRESHOLD='10'
+POWERLEVEL9K_BATTERY_VISUAL_IDENTIFIER_EXPANSION=$'\uf1e6'$s
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='cyan'
+POWERLEVEL9K_DIR_HOME_BACKGROUND='cyan'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='cyan'
+POWERLEVEL9K_DIR_ETC_BACKGROUND='cyan'
+POWERLEVEL9K_DIR_NOT_WRITABLE_BACKGROUND='cyan'
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='white'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='white'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='white'
+# POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
+
+POWERLEVEL9K_STATUS_VERBOSE=true
+POWERLEVEL9K_STATUS_CROSS=false
+POWERLEVEL9K_STATUS_ERROR_BACKGROUND='black'
+POWERLEVEL9K_STATUS_ERROR_FOREGROUND='red'
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND=black
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=white
+POWERLEVEL9K_EXECUTION_TIME_ICON='\uf608'$s
+POWERLEVEL9K_TIME_FORMAT="%D{\uf017 %H:%M \uf073 20%y/%m/%d}"
+POWERLEVEL9K_TIME_ICON=''
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND='black'
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND='red'
+POWERLEVEL9K_RAM_BACKGROUND='white'
+POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE_ALWAYS=true
+
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF460%F{109}\uF460%f "
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context battery dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time time dir_writable custom_wifi_signal ram background_jobs)
