@@ -41,9 +41,13 @@ source ~/.theme/sonar_station_windows.zsh
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 PATH=$PATH:$(ruby -e 'puts Gem.bindir')
-alias ls="colorls"
+alias ls='colorls'
 alias pbcopy='clip.exe'
+alias nautilus='explorer.exe'
 
 zplug load --verbose
 
 clear
+alias javac='javac.exe'
+alias node='node.exe'
+alias go='go.exe'
