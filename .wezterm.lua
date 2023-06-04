@@ -8,7 +8,8 @@ end
 
 config.color_scheme = 'AdventureTime'
 config.font = wezterm.font("Scientifica Nerd Font", {weight="Medium", stretch="Normal", style="Normal"})
-config.font_rules = { {
+config.font_rules = {
+  {
     italic = true,
     font = wezterm.font_with_fallback {
       { family = "Scientifica Nerd Font", weight="Medium", stretch="Normal", style="Normal"}
@@ -22,5 +23,14 @@ config.font_rules = { {
   },
 }
 config.font_size = 16
+
+config.keys = {
+  {
+    key="Backspace",
+    mods="CTRL",
+    action=wezterm.action{SendString="TEST"}
+  },
+},
+
 
 return config
