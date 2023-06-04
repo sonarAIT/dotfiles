@@ -11,4 +11,17 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-source ~/dotfiles/theme/default.zsh
+DOTFILES_PATH=$HOME/dotfiles
+THEME_PATH=$DOTFILES_PATH/theme
+ZSH_PATH=$DOTFILES_PATH/zsh
+
+# import theme
+source $THEME_PATH/default.zsh
+
+# import zsh scripts
+if [ -d $ZSH_PATH ]; then
+  source $ZSH_PATH/alias.zsh
+  source $ZSH_PATH/dir.zsh
+  source $ZSH_PATH/config.zsh
+fi
+
