@@ -21,6 +21,7 @@ source $THEME_PATH/default.zsh
 # import zsh scripts
 if [ -d $ZSH_PATH ]; then
   source $ZSH_PATH/alias.zsh
+  source $ZSH_PATH/bindkey.zsh
   source $ZSH_PATH/dir.zsh
   source $ZSH_PATH/config.zsh
 fi
