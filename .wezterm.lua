@@ -6,7 +6,7 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
-config.color_scheme = 'AdventureTime'
+config.color_scheme = 'MaterialDesignColors'
 config.font = wezterm.font("Scientifica Nerd Font", {weight="Medium", stretch="Normal", style="Normal"})
 config.font_rules = {
   {
@@ -23,14 +23,5 @@ config.font_rules = {
   },
 }
 config.font_size = 16
-
-config.keys = {
-  {
-    key="Backspace",
-    mods="CTRL",
-    action=wezterm.action{SendString="TEST"}
-  },
-},
-
 
 return config
