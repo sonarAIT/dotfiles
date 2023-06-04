@@ -1,19 +1,30 @@
-ApplicationBinaryName=wezterm-gui.exe
-ApplicationBinaryPath="C:\Program Files\WezTerm\wezterm-gui.exe"
-
 Alt::
+  ApplicationBinaryName=wezterm-gui.exe
+  ApplicationBinaryPath="C:\Program Files\WezTerm\wezterm-gui.exe"
+
   Keywait, Alt, U
   Keywait, Alt, D, T0.2
-  If (ErrorLevel=1)
+  if (ErrorLevel=1)
+  {
     Send, {Alt}
+    Exit
+  }
+
+  Process, Exist, %ApplicationBinaryName%
+  if ErrorLevel=0
+  {
+    Run, %ApplicationBinaryPath%, %A_WorkingDir%, Min
+    WinWait, ahk_exe %ApplicationBinaryName%
+  }
+
+  WinGet, WinState, MinMax, ahk_exe %ApplicationBinaryName%
+  if WinState=-1
+  {
+    WinActivate, ahk_exe %ApplicationBinaryName%
+  }
   else
-    Process, Exist, %ApplicationBinaryName%
-    if ErrorLevel<>0
-      WinActivate, ahk_pid %ErrorLevel%
-    else
-      Run, %ApplicationBinaryPath%
-      Process, Exist, %ApplicationBinaryName%
-      if ErrorLevel<>0
-        WinActivate, ahk_pid %ErrorLevel%
+  {
+    WinMinimize, ahk_exe %ApplicationBinaryName%
+  }
 
   return
