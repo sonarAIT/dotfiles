@@ -76,6 +76,18 @@ config.keys = {
       mods = "CTRL",
     },
   },
+  {
+    key = 'f',
+    mods = 'SHIFT|META',
+    action = wezterm.action.ToggleFullScreen,
+  },
 }
+
+-- always open window in full screen
+local mux = wezterm.mux
+wezterm.on("gui-startup", function()
+  local tab, pane, window = mux.spawn_window(cmd or {})
+  window:gui_window():toggle_fullscreen()
+end)
 
 return config
