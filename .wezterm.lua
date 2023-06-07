@@ -93,4 +93,7 @@ wezterm.on("gui-startup", function()
   window:gui_window():toggle_fullscreen()
 end)
 
+-- tabbar config
+config.hide_tab_bar_if_only_one_tab = true
+
 return config
