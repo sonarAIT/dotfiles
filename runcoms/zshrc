@@ -12,11 +12,10 @@ fi
 
 # Customize to your needs...
 DOTFILES_PATH=$HOME/dotfiles
-THEME_PATH=$DOTFILES_PATH/theme
 ZSH_PATH=$DOTFILES_PATH/zsh
 
 # import theme
-source $THEME_PATH/default.zsh
+source $ZSH_PATH/theme/default.zsh
 
 # import zsh scripts
 if [ -d $ZSH_PATH ]; then
