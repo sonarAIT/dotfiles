@@ -77,3 +77,8 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
 fi
 
 _byobu_sourced=1 . /usr/local/Cellar/byobu/5.133_3/bin/byobu-launch 2>/dev/null || true
+
+if [[ ! -d ~/TimeStamp ]]; then
+  git clone git@github.com:sonarAIT/TimeStamp.git
+fi
+zsh -c "~/TimeStamp/stamp.sh &"
