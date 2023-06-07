@@ -8,6 +8,9 @@ end
 
 -- theme config
 config.color_scheme = 'MaterialDesignColors'
+config.window_background_opacity = 0.85
+
+-- font config
 config.font = wezterm.font("Scientifica Nerd Font", {weight="Medium", stretch="Normal", style="Normal"})
 config.font_rules = {
   {
