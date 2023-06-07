@@ -33,7 +33,7 @@ config.keys = {
     mods = "CMD",
     action = act.SendKey {
       key = "b",
-      mods = "CTRL",
+      mods = "META",
     },
   },
   {
@@ -41,14 +41,38 @@ config.keys = {
     mods = "CMD",
     action = act.SendKey {
       key = "f",
-      mods = "CTRL",
+      mods = "META",
     },
   },
   {
     key = "Backspace",
     mods = "CMD",
     action = act.SendKey {
-      key = "Backspace",
+      key = "w",
+      mods = "CTRL",
+    },
+  },
+  {
+    key = "LeftArrow",
+    mods = "CTRL",
+    action = act.SendKey {
+      key = "b",
+      mods = "META",
+    },
+  },
+  {
+    key = "RightArrow",
+    mods = "CTRL",
+    action = act.SendKey {
+      key = "f",
+      mods = "META",
+    },
+  },
+  {
+    key = "Backspace",
+    mods = "CTRL",
+    action = act.SendKey {
+      key = "w",
       mods = "CTRL",
     },
   },
