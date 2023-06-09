@@ -76,9 +76,14 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-_byobu_sourced=1 . /usr/local/Cellar/byobu/5.133_3/bin/byobu-launch 2>/dev/null || true
-
 if [[ ! -d ~/TimeStamp ]]; then
   git clone git@github.com:sonarAIT/TimeStamp.git $HOME/TimeStamp
 fi
 zsh -c "~/TimeStamp/stamp.sh &"
+
+if [[ "$(uname)" == 'Darwin' ]]; then
+  _byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
+fi
+if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+  _byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
+fi
