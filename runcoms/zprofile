@@ -79,6 +79,6 @@ fi
 _byobu_sourced=1 . /usr/local/Cellar/byobu/5.133_3/bin/byobu-launch 2>/dev/null || true
 
 if [[ ! -d ~/TimeStamp ]]; then
-  git clone git@github.com:sonarAIT/TimeStamp.git
+  git clone git@github.com:sonarAIT/TimeStamp.git $HOME/TimeStamp
 fi
 zsh -c "~/TimeStamp/stamp.sh &"
