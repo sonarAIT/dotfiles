@@ -13,8 +13,8 @@ Alt::
   Process, Exist, %ApplicationBinaryName%
   if ErrorLevel=0
   {
-    Run, %ApplicationBinaryPath%, %A_WorkingDir%, Min
-    WinWait, ahk_exe %ApplicationBinaryName%
+    Run, %ApplicationBinaryPath%, %A_WorkingDir%
+    Exit
   }
 
   WinGet, WinState, MinMax, ahk_exe %ApplicationBinaryName%
