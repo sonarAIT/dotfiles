@@ -79,7 +79,7 @@ fi
 if [[ ! -d ~/TimeStamp ]]; then
   git clone git@github.com:sonarAIT/TimeStamp.git $HOME/TimeStamp
 fi
-zsh -c "~/TimeStamp/stamp.sh &"
+zsh -c "~/TimeStamp/stamp.sh &" >/dev/null 2>&1
 
 if [[ "$(uname)" == 'Darwin' ]]; then
   _byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
