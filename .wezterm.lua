@@ -84,6 +84,11 @@ config.keys = {
     mods = 'SHIFT|META',
     action = wezterm.action.ToggleFullScreen,
   },
+  {
+    key = 'w',
+    mods = 'CTRL',
+    action = wezterm.action.CloseCurrentTab { confirm = false },
+  },
 }
 
 -- always open window in full screen
