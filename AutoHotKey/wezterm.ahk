@@ -14,6 +14,8 @@ Alt::
   if ErrorLevel=0
   {
     Run, %ApplicationBinaryPath%, %A_WorkingDir%
+    WinWait, ahk_exe %ApplicationBinaryName%
+    WinActivate, ahk_exe %ApplicationBinaryName%
     Exit
   }
 
