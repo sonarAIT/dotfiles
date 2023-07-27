@@ -101,4 +101,7 @@ end)
 -- tabbar config
 config.hide_tab_bar_if_only_one_tab = true
 
+-- bell config
+config.audible_bell = "Disabled"
+
 return config
