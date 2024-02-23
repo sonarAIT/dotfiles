@@ -25,6 +25,12 @@ config.font_rules = {
       { family = "Scientifica Nerd Font", weight="Medium", stretch="Normal", style="Normal"}
     },
   },
+  {
+    intensity = "Half",
+    font = wezterm.font_with_fallback {
+      { family = "Scientifica Nerd Font", weight="Medium", stretch="Normal", style="Normal"}
+    },
+  },
 }
 config.font_size = 16
 
