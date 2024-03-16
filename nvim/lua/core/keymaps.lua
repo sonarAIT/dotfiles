@@ -9,7 +9,7 @@ vim.api.nvim_set_keymap("n", "<leader>j", "<C-w>j", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>k", "<C-w>k", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>s", "<C-w>s", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>v", "<C-w>v", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader><C-d>", "<C-w>c", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>w", "<C-w>c", { noremap = true })
 
 -- buffer keyconfig
 vim.api.nvim_set_keymap("n", "<leader>n", "<CMD>ene<CR>", {})
