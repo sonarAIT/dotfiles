@@ -4,6 +4,6 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
   export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
 
   # asdf
-  . /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
+  # . /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
 fi
 
