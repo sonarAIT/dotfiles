@@ -1,6 +1,6 @@
 # aliases
-alias ls='exa'
-alias la='exa -al'
+alias ls='eza'
+alias la='eza -al'
 alias vim='nvim'
 
 # for WSL2
