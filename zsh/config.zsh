@@ -5,5 +5,8 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
 
   # asdf
   # . /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
+
+  # for ollama
+  export OLLAMA_MAX_LOADED_MODELS=2
 fi
 
