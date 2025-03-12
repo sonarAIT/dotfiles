@@ -1,0 +1,3 @@
+#Home::
+  Send, #!{PrintScreen}
+Return
