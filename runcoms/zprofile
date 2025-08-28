@@ -91,3 +91,6 @@ fi
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
   _byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
 fi
+
+# Golang
+export PATH=$PATH:/usr/local/go/bin
