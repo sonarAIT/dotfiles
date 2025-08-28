@@ -24,4 +24,3 @@ if [ -d $ZSH_PATH ]; then
   source $ZSH_PATH/dir.zsh
   source $ZSH_PATH/config.zsh
 fi
-

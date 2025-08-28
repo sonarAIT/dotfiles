@@ -73,10 +73,6 @@ if [[ -z "$LESSOPEN" ]] && (( $#commands[(i)lesspipe(|.sh)] )); then
 fi
 
 # original settings
-# linuxbrew
-# if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
-#   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-# fi
 
 # Time Stamp
 if [[ ! -d ~/TimeStamp ]]; then
@@ -88,7 +84,7 @@ zsh -c "~/TimeStamp/stamp.sh &" >/dev/null 2>&1
 if [[ "$(uname)" == 'Darwin' ]]; then
   _byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
 fi
-if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+if uname -r | grep -q -i "microsoft\|wsl"; then
   _byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
 fi
 
